@@ -10,6 +10,7 @@ inside1
 notexisting2
 admin
 login
+inside2
 nothiddenatall
 baubau
 inside4
