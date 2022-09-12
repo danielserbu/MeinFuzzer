@@ -6,7 +6,7 @@ import threading
 
 parser = argparse.ArgumentParser(description="Web App Fuzzer")
 parser.add_argument("-u", "--url", help="Target URL starting with http(s)://")
-parser.add_argument("-f", "--fuzzlist", help="The fuzzlist")
+parser.add_argument("-f", "--fuzzlist", help="The fuzzing payload list")
 parser.add_argument("-d", "--direnum", action='store_true', help="Enumerate for directories")
 
 args = parser.parse_args()
@@ -36,9 +36,10 @@ def check_for_paths_in_url(paths, url):
         fullUrl = url.replace("FUZZ", path)
         # Do not scan again in paths that do not exist.
         if fullUrl not in paths_already_checked:
-            request = requests.get(fullUrl)
-            paths_already_checked.append(fullUrl)
-            if request.status_code != 200:
+            try:
+                request = requests.get(fullUrl)
+                paths_already_checked.append(fullUrl)
+            except requests.ConnectionError:
                 pass
             else:
                 if not request.status_code == 404:
