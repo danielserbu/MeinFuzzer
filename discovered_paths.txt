@@ -8,3 +8,7 @@ http://localhost:8000/test2/inside1
 http://localhost:8000/test1/testtest
 http://localhost:8000/secretfolder/secretinsidesecretfolder
 http://localhost:8000/admin/verysecretstuffhere
+http://localhost:8000/test2/inside1/inside2
+http://localhost:8000/admin/verysecretstuffhere/nothiddenatall
+http://localhost:8000/test2/inside1/inside2/inside3
+http://localhost:8000/test2/inside1/inside2/inside3/inside4
